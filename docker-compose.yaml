@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+
+  # Spring Boot Application
+  spring-boot-app:
+    image: testwebservice1
+    ports:
+      - "0.0.0.0:9991:9991"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://10.50.119.136:3306/capcash?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=ilemselect
+      - SPRING_DATASOURCE_PASSWORD=h96fM7UUi
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - mysql
+
+  # MySQL Database
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'capcash'
+      MYSQL_ROOT_USERNAME: 'ilemselect'
+      MYSQL_ROOT_PASSWORD: 'h96fM7UUi'
+    ports:
+      - '0.0.0.0:3306:3306'
+    volumes:
+      - capcash:/var/lib/mysql
+  # liste des volumes
+volumes:
+  capcash:
