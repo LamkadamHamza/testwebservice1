@@ -17,7 +17,7 @@ pipeline {
         }
         stage ("Generate backend image") {
               steps {
-                   dir("tp3jenkins"){
+                   dir("testwebservice1"){
                       sh "mvn clean install -DskipTests"
                       sh "docker build -t testwebservice1 ."
                   }
