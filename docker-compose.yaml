@@ -21,8 +21,8 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: 'capcash'
-      MYSQL_ROOT_USERNAME: 'ilemselect'
-      MYSQL_ROOT_PASSWORD: 'h96fM7UUi'
+      MYSQL_ROOT_USERNAME: '****'
+      MYSQL_ROOT_PASSWORD: '***'
     ports:
       - '0.0.0.0:3306:3306'
     volumes:
